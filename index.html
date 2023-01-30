@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + Lit + TS</title>
+  <link rel="stylesheet" href="./src/index.css" />
+  <script type="module" src="/src/scratch-card.ts"></script>
+
+  <style>
+    :root {
+      /* --scratch-card-border-radius: 20px; */
+    }
+
+    .test {
+      box-sizing: border-box;
+      width: 800px;
+      height: 700px;
+      border: 2px solid black;
+    }
+  </style>
+
+  <script>
+    function clearSC() {
+      document.getElementsByTagName("scratch-card")[0].clearCanvas();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementsByTagName("scratch-card")[0].addEventListener('cleared', () => console.log('cleared!'));
+    });
+  </script>
+</head>
+
+<body>
+  <!-- <div class="c">
+    <scratch-card fillStyle="white" showAllAt="50">
+      <h1 style="margin: 0">Pippo</h1>
+    </scratch-card>
+  </div> -->
+  <div class="test">
+    <scratch-card coverSrc="/images/scratch.webp" centerCover="true" brushScale="1" scaleCover="true">
+      <h1 style="margin: 0">Pippo</h1>
+    </scratch-card>
+  </div>
+  <button onclick="clearSC()">Clear</button>
+</body>
+
+</html>

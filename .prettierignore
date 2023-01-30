@@ -1,0 +1,7 @@
+.idea/
+.svelte-kit/
+.vscode/
+build/
+dist/
+node_modules/
+static/
