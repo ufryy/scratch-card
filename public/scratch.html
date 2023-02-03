@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scratch card demo</title>
+    <script type="module" src="./scratch-card.js"></script>
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <scratch-card>
+            <h1 style="margin: 0">Pippo</h1>
+        </scratch-card>
+    </div>
+</body>
+
+</html>

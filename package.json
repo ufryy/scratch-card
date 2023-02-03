@@ -14,8 +14,9 @@
   "types": "./dist/src/ScratchCard.d.ts",
   "scripts": {
     "analyze": "cem analyze --litelement",
+    "demoCopy": "cp ./dist/src/scratch-card.js ./public",
     "dev": "vite",
-    "build": "tsc && pnpm analyze --exclude dist",
+    "build": "tsc && pnpm analyze --exclude dist && pnpm demoCopy",
     "build:vite": "tsc && vite build",
     "prepublish": "tsc && pnpm run analyze --exclude dist",
     "preview": "vite preview"
