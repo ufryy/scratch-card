@@ -69,10 +69,10 @@ export class ScratchCard extends LitElement {
 
 	/**
 	 * If true, the cover image is centered in the scratching area.
-	 * @defaultValue `true`
+	 * @defaultValue `false`
 	 */
 	@property({ type: Boolean })
-	centerCover: boolean = true;
+	centerCover: boolean = false;
 
 	/**
 	 * URL path (relative or absolute) of the image to be used as cover to scratch.
@@ -83,8 +83,7 @@ export class ScratchCard extends LitElement {
 	coverSrc?: string;
 
 	/**
-	 * Specifies the color, gradient or pattern to use to fill the scratch area if a `coverSrc` is not provided.
-	 * It follows the `CanvasRenderingContext2D.fillStyle` specification.
+	 * Specifies the color to use to fill the scratch area if a `coverSrc` is not provided.
 	 * If this is an invalid value while the `coverSrc` is missing, the scratch card will show as already scratched.
 	 * @defaultValue `white`
 	 */
