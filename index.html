@@ -6,7 +6,6 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + Lit + TS</title>
-  <link rel="stylesheet" href="./src/index.css" />
   <script type="module" src="/src/ScratchCard.ts"></script>
 
   <style>
@@ -16,7 +15,7 @@
 
     .test {
       box-sizing: border-box;
-      width: 800px;
+      width: 300px;
       height: 700px;
       border: 2px solid black;
     }
@@ -40,7 +39,7 @@
     </scratch-card>
   </div> -->
   <div class="test">
-    <scratch-card fillStyle="blue" centerCover="true" brushScale="1" scaleCover="true">
+    <scratch-card fillStyle="red" coverSrc="tree.jpg" centerCover="true" brushScale="3" preserveAspectRatio>
       <h1 style="margin: 0">Pippo</h1>
     </scratch-card>
   </div>
