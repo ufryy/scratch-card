@@ -1,23 +1,23 @@
 {
-  "name": "custom-elements",
+  "name": "scratch-card",
+  "description": "Scratch card web component following the open-wc recommendations",
   "private": true,
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "main": "dist/my-element.es.js",
+  "main": "dist/src/index.js",
+  "module": "dist/src/index.js",
   "exports": {
-    ".": "./dist/my-element.es.js"
+    ".": "./dist/src/index.js",
+    "./scratch-card.js": "./dist/src/scratch-card.js"
   },
-  "types": "types/my-element.d.ts",
-  "files": [
-    "dist",
-    "types"
-  ],
+  "types": "./dist/src/ScratchCard.d.ts",
   "scripts": {
     "analyze": "cem analyze --litelement",
     "dev": "vite",
     "build": "tsc && pnpm analyze --exclude dist",
     "build:vite": "tsc && vite build",
+    "prepublish": "tsc && pnpm run analyze --exclude dist",
     "preview": "vite preview"
   },
   "dependencies": {

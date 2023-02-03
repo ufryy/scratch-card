@@ -5,12 +5,13 @@ export default defineConfig(({ command, mode }) => {
 	return {
 		build: {
 			lib: {
-				entry: "src/scratch-card.ts",
+				entry: "src/ScratchCard.ts",
 				formats: ["es"]
 			},
 			rollupOptions: {
 				external: mode === "production" ? "" : /^lit-element/
-			}
+			},
+			outDir: "build"
 		}
 	};
 });
