@@ -3,9 +3,6 @@
     "module": "ESNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "target": "ES5",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "./types",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -17,8 +14,16 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "inlineSources": true,
+    "rootDir": "./",
+    "noEmitOnError": true,
+    "declaration": true,
+    "incremental": true
   },
-  "include": ["src/**/*.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["**/*.ts"],
+  "exclude": ["./vite.config.ts", "src/vite-env.d.ts", "dist"]
 }
