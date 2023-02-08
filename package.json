@@ -1,32 +1,42 @@
 {
   "name": "scratch-card",
-  "description": "Scratch card web component following the open-wc recommendations",
+  "description": "Scratch card web component made in Lit",
   "private": true,
+  "author": "Matteo De Nardis",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
-  "main": "dist/src/index.js",
-  "module": "dist/src/index.js",
-  "exports": {
-    ".": "./dist/src/index.js",
-    "./scratch-card.js": "./dist/src/scratch-card.js"
-  },
-  "types": "./dist/src/ScratchCard.d.ts",
+  "main": "dist/scratch-card.js",
+  "module": "dist/scratch-card.js",
+  "types": "dist/scratch-card.d.ts",
+  "customElements": "custom-elements.json",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "scratch-card",
+    "lit",
+    "typescript",
+    "web-components"
+  ],
   "scripts": {
     "analyze": "cem analyze --litelement",
+    "clean": "rimraf scratch-card.{d.ts,d.ts.map,js,js.map}",
     "dev": "vite",
-    "build": "tsc && pnpm analyze --exclude dist",
-    "build:vite": "tsc && vite build && cp ./build/scratch-card.js ./docs",
-    "prepublish": "tsc && pnpm run analyze --exclude dist",
+    "build": "pnpm clean && tsc && pnpm analyze --exclude dist",
+    "build:vite": "pnpm clean && tsc && vite build && cp ./build/scratch-card.js ./docs",
+    "prepublish": "pnpm clean && tsc && pnpm run analyze --exclude dist",
     "preview": "vite preview"
   },
   "dependencies": {
-    "lit": "^2.4.1",
-    "tslib": "^2.5.0"
+    "lit": "^2.4.1"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.6.8",
     "prettier": "^2.8.3",
+    "rimraf": "^4.1.2",
+    "tslib": "^2.5.0",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }
