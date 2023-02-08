@@ -76,7 +76,7 @@ export class ScratchCard extends LitElement {
 
 	/**
 	 * URL path (relative or absolute) of the image to be used as cover to scratch.
-	 * If undefined, then the scratch area will be filled with a rectangle with style specified by the `fillStyle` property.
+	 * If undefined, then the scratch area will be filled with a rectangle with style specified by the `fillColor` property.
 	 * @defaultValue `undefined`
 	 */
 	@property()
@@ -88,7 +88,7 @@ export class ScratchCard extends LitElement {
 	 * @defaultValue `white`
 	 */
 	@property()
-	fillStyle: string = "white";
+	fillColor: string = "white";
 
 	/**
 	 * Whether to scale or not the cover to avoid leaving empty spaces in the scratch area.
@@ -237,8 +237,8 @@ export class ScratchCard extends LitElement {
 				this.#ctx.restore();
 				this.#slottedElement!.style.visibility = "visible";
 			};
-		} else if (this.fillStyle) {
-			this.#ctx.fillStyle = this.fillStyle;
+		} else if (this.fillColor) {
+			this.#ctx.fillStyle = this.fillColor;
 			const dWidth = this.preserveAspectRatio ? scaledWidth : width;
 			const dHeight = this.preserveAspectRatio ? scaledHeight : height;
 			this.#ctx.rect(0, 0, dWidth, dHeight);

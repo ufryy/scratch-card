@@ -1,7 +1,7 @@
 {
   "name": "scratch-card",
   "description": "Scratch card web component made in Lit",
-  "private": true,
+  "private": false,
   "author": "Matteo De Nardis",
   "license": "MIT",
   "version": "0.1.0",
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "clean": "rimraf scratch-card.{d.ts,d.ts.map,js,js.map}",
+    "clean": "rimraf dist/",
     "dev": "vite",
     "build": "pnpm clean && tsc && pnpm analyze --exclude dist",
     "build:vite": "pnpm clean && tsc && vite build && cp ./build/scratch-card.js ./docs",

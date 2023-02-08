@@ -5,7 +5,7 @@ export default defineConfig(({ command, mode }) => {
 	return {
 		build: {
 			lib: {
-				entry: "src/ScratchCard.ts",
+				entry: "src/scratch-card.ts",
 				formats: ["es"]
 			},
 			rollupOptions: {
