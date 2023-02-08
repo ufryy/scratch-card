@@ -1,7 +1,7 @@
 /**
  * A scratch card custom element made with Lit.
  * Inspired from this CodePen made by Totati: https://codepen.io/Totati/pen/pPXrJV
- * 
+ *
  * @author Matteo De Nardis <matteodn96@gmail.com>
  */
 
@@ -102,7 +102,7 @@ export class ScratchCard extends LitElement {
 
 	/**
 	 * Percentage threshold to consider the card as fully scratched.
-	 * For instance, if `showAllAt="80"` the content will be entirely revelead when the 80% of the card's surface is scratched.
+	 * For instance, if `showAllAt="80"` the content will be entirely revealed when the 80% of the card's surface is scratched.
 	 * @defaultValue `100`
 	 */
 	@property({ type: Number })
@@ -161,21 +161,37 @@ export class ScratchCard extends LitElement {
 	/**
 	 * Returns the card's underlying content.
 	 */
-	get slottedElement(): HTMLElement {
-		return this.shadowRoot!.querySelector("slot")!.assignedElements()[0] as HTMLElement;
+	get #slottedElement(): HTMLElement | null {
+		if (!this.shadowRoot) {
+			return null;
+		}
+
+		const slot = this.shadowRoot.querySelector("slot");
+		if (!slot) {
+			if (!this.silenceWarnings) {
+				console.warn("Missing slot element needed by scratch-card");
+			}
+			return null;
+		}
+
+		return slot.assignedElements()[0] as HTMLElement;
 	}
 
 	/**
 	 * Method to manually clear the card, revealing immediately the underlying content.
 	 */
 	clearCard(): void {
+		if (!this.#slottedElement) {
+			return;
+		}
+
 		if (this.#canvas.value && this.#canvas.value.parentNode) {
 			this.#canvas.value.parentNode!.removeChild(this.#canvas.value);
 			this.#dispatchClear();
 		} else if (!this.silenceWarnings) {
 			console.warn("clearCanvas() called while canvas is not attached to the DOM");
 		}
-		this.slottedElement.style.visibility = "visible";
+		this.#slottedElement.style.visibility = "visible";
 	}
 
 	#dispatchClear(): void {
@@ -184,7 +200,11 @@ export class ScratchCard extends LitElement {
 	}
 
 	#refreshCanvas(): void {
-		this.slottedElement.style.visibility = "hidden";
+		if (!this.#slottedElement) {
+			return;
+		}
+
+		this.#slottedElement.style.visibility = "hidden";
 
 		const width = this.#container.value!.offsetWidth;
 		const height = this.#container.value!.offsetHeight;
@@ -203,7 +223,7 @@ export class ScratchCard extends LitElement {
 			cover.src = this.coverSrc;
 			cover.setAttribute("crossOrigin", "");
 			cover.onload = () => {
-				console.debug(this.preserveAspectRatio)
+				console.debug(this.preserveAspectRatio);
 				const [dWidth, dHeight] = this.preserveAspectRatio
 					? this.#scale(scaledWidth, scaledHeight, cover.width, cover.height)
 					: [cover.width, cover.height];
@@ -215,13 +235,15 @@ export class ScratchCard extends LitElement {
 				this.#ctx.save();
 				this.#ctx.setTransform(-scaleFactor, 0, 0, -scaleFactor, translateX, translateY);
 				this.#ctx.restore();
-				this.slottedElement.style.visibility = "visible";
+				this.#slottedElement!.style.visibility = "visible";
 			};
 		} else if (this.fillStyle) {
 			this.#ctx.fillStyle = this.fillStyle;
-			this.#ctx.rect(0, 0, width, height);
+			const dWidth = this.preserveAspectRatio ? scaledWidth : width;
+			const dHeight = this.preserveAspectRatio ? scaledHeight : height;
+			this.#ctx.rect(0, 0, dWidth, dHeight);
 			this.#ctx.fill();
-			this.slottedElement.style.visibility = "visible";
+			this.#slottedElement.style.visibility = "visible";
 		} else {
 			this.clearCard();
 		}
@@ -263,7 +285,12 @@ export class ScratchCard extends LitElement {
 			stride = 1;
 		}
 
-		const pixels = this.#ctx.getImageData(0, 0, this.#canvas.value!.width, this.#canvas.value!.height),
+		const pixels = this.#ctx.getImageData(
+				0,
+				0,
+				this.#canvas.value!.width,
+				this.#canvas.value!.height
+			),
 			pixelsDataLength = pixels.data.length,
 			total = pixelsDataLength / stride;
 
@@ -334,7 +361,7 @@ export class ScratchCard extends LitElement {
 			const y = this.#lastPoint.y + Math.cos(angle) * i - 25 - (h - this.#brush.height) / 2;
 			this.#ctx.globalCompositeOperation = "destination-out";
 			this.#ctx.drawImage(this.#brush, x * scaleFactor, y * scaleFactor, w, h);
-		}												
+		}
 
 		this.#lastPoint = currentPoint;
 		this.#handlePercentage(this.#getFilledInPixels(this.coverSrc ? 32 : 1));
