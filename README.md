@@ -1,6 +1,6 @@
 # Scratch card <!-- omit in toc -->
 
-A scratch card wrapped in a web component, inspired by the [CodePen made by Totati](https://codepen.io/Totati/pen/pPXrJV) and written with [Lit](https://lit.dev/) and TypeScript.
+A scratch card wrapped in a web component, inspired by the <a href="https://codepen.io/Totati/pen/pPXrJV" target="_blank">CodePen made by Totati</a> and written with <a href="https://lit.dev/" target="_blank">Lit</a> and TypeScript.
 
 ## Table of Contents <!-- omit in toc -->
 
