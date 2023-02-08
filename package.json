@@ -20,6 +20,14 @@
     "typescript",
     "web-components"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ufryy/scratch-card.git"
+  },
+  "homepage": "https://ufryy.github.io/scratch-card/",
+  "bugs": {
+    "url": "https://github.com/ufryy/scratch-card/issues"
+  },
   "scripts": {
     "analyze": "cem analyze --litelement",
     "clean": "rimraf dist/",
