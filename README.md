@@ -1,5 +1,7 @@
 # Scratch card <!-- omit in toc -->
 
+![image](https://img.shields.io/npm/l/scratch-card-web-component)
+
 A scratch card wrapped in a web component, inspired by the <a href="https://codepen.io/Totati/pen/pPXrJV" target="_blank">CodePen made by Totati</a> and written with <a href="https://lit.dev/" target="_blank">Lit</a> and TypeScript.
 
 ## Table of Contents <!-- omit in toc -->
