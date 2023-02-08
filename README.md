@@ -19,13 +19,13 @@ You can see the scratch card in action [here](https://ufryy.github.io/scratch-ca
 
 ```bash
 # npm
-npm install scratch-card
+npm install scratch-card-web-component
 
 # yarn
-yarn add scratch-card
+yarn add scratch-card-web-component
 
 # pnpm
-pnpm add scratch-card
+pnpm add scratch-card-web-component
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ The scratch card can be imported and used in an HTML page in this way:
 
 ```html
 <script type="module">
-    import "scratch-card"
+    import "scratch-card-web-component"
 </script>
 
 <div id="app">
@@ -49,6 +49,8 @@ The scratch card sets its dimensions to **100% width and height of its parent**.
 You *should not* create a scratch card via JavaScript/TypeScript, but there you can access and modify its attributes:
 
 ```typescript
+import type { ScratchCard } from "scratch-card-web-component";
+
 const scratchCard = document.querySelector("scratch-card") as ScratchCard;
 scratchCard.fillColor = "rebeccapurple";
 ```
