@@ -52,6 +52,11 @@
             background-color: #ccc;
             border-radius: 10px;
         }
+
+        #card-css-props {
+            --scratch-card-border-radius: 50%;
+            --scratch-card-cursor: pointer;
+        }
     </style>
 </head>
 
@@ -61,7 +66,7 @@
         <div class="box">
             <div class="card">
                 <scratch-card>
-                    <h1 style="margin: 0">Pippo</h1>
+                    <h1 style="margin: 0">Hello!</h1>
                 </scratch-card>
             </div>
             <div class="params">
@@ -71,7 +76,7 @@
         <div class="box">
             <div class="card">
                 <scratch-card fillStyle="salmon">
-                    <h1 style="margin: 0">Pippo</h1>
+                    <h1 style="margin: 0">Hello!</h1>
                 </scratch-card>
             </div>
             <div class="params">
@@ -81,7 +86,7 @@
         <div class="box">
             <div class="card">
                 <scratch-card fillStyle="hsl(145, 63%, 42%)" brushScale="0.5" showAllAt="50">
-                    <h1 style="margin: 0">Pippo</h1>
+                    <h1 style="margin: 0">Hello!</h1>
                 </scratch-card>
             </div>
             <div class="params">
@@ -97,7 +102,7 @@
         <div class="box">
             <div class="card">
                 <scratch-card coverSrc="./scratch.webp" preserveAspectRatio>
-                    <h1 style="margin: 0">Pippo</h1>
+                    <h1 style="margin: 0">Hello!</h1>
                 </scratch-card>
             </div>
             <div class="params">
@@ -111,7 +116,7 @@
         <div class="box">
             <div class="card">
                 <scratch-card coverSrc="./scratch.webp" centerCover preserveAspectRatio>
-                    <h1 style="margin: 0">Pippo</h1>
+                    <h1 style="margin: 0">Hello!</h1>
                 </scratch-card>
             </div>
             <div class="params">
@@ -127,7 +132,7 @@
         <div class="box">
             <div class="card">
                 <scratch-card coverSrc="./scratch.webp" centerCover>
-                    <h1 style="margin: 0">Pippo</h1>
+                    <h1 style="margin: 0">Hello!</h1>
                 </scratch-card>
             </div>
             <div class="params">
@@ -135,6 +140,22 @@
                     coverSrc="./scratch.webp"
                     <br/>
                     centerCover
+                </code>
+            </div>
+        </div>
+        <div class="box">
+            <div id="card-css-props" class="card">
+                <scratch-card fillStyle="salmon">
+                    <h1 style="margin: 0">Hello!</h1>
+                </scratch-card>
+            </div>
+            <div class="params">
+                <code>fillStyle="salmon"</code>
+                <p>CSS properties:</p>
+                <code>
+                    --scratch-card-border-radius: 50%;
+                    <br/>
+                    --scratch-card-cursor: pointer;
                 </code>
             </div>
         </div>
