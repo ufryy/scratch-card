@@ -1,6 +1,6 @@
 # Scratch card <!-- omit in toc -->
 
-![image](https://img.shields.io/npm/l/scratch-card-web-component)
+[![image](https://img.shields.io/npm/l/scratch-card-web-component)](https://github.com/ufryy/scratch-card/blob/main/LICENSE) [![npm](https://img.shields.io/npm/dy/scratch-card-web-component)](https://www.npmjs.com/package/scratch-card-web-component)
 
 A scratch card wrapped in a web component, inspired by the <a href="https://codepen.io/Totati/pen/pPXrJV" target="_blank">CodePen made by Totati</a> and written with <a href="https://lit.dev/" target="_blank">Lit</a> and TypeScript.
 
@@ -11,6 +11,7 @@ A scratch card wrapped in a web component, inspired by the <a href="https://code
 - [Usage](#usage)
   - [Properties](#properties)
   - [CSS properties](#css-properties)
+- [Known issues](#known-issues)
 - [License](#license)
 
 ## Demo
@@ -79,6 +80,10 @@ You can customize some styling of the scratch card via these CSS properties:
 
 You can set a CSS property directly on one of the scratch-card's parent elements.
 
+## Known issues
+
+On Android the scratch card does not behave as expected.
+
 ## License
 
-MIT
+[MIT](https://github.com/ufryy/scratch-card/blob/main/LICENSE)
